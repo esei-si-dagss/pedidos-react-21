@@ -26,7 +26,7 @@ npm install axios
 npm install primereact
 npm install primeicons
 npm install primeflex
-npm react-transition-group
+npm install react-transition-group
 ```
 
 
@@ -39,7 +39,18 @@ npm install
 npm start
 ```
 
-Arranca servidor de desarrollo en (http:localhost:3000
+Arranca servidor de desarrollo en (http:localhost:3000)
+
+## Estructura y elementos del proyecto
+
+* `src/App.js`: punto de entrada a la aplicaicón, contiene las _rutas_ hacia los componentes que implementan las diferentes vistas
+* `src/components`: código de los componentes
+  * una carpeta por cada entidad
+  * _[entidad]_`Listado.js`: vista del listado de entidades 
+  * _[entidad]_`Detalle.js`: vista de detalle de cada entidad
+* `src/services`: clases que encapsulan las operaciones de acceso a los _endpoint_ REST mediante la libreria _axios_ 
+  * `clienteREST.js` encapsula el objeto _axios_ 
+  *  _[entidad]_`Service.js` encapsula las operaciones sobre cada entidad
 
 ## Añadidos
 

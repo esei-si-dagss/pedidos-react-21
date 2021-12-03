@@ -71,39 +71,39 @@ export default function ClientesDetalle() {
 
             <div className="p-fluid">
                 <form onSubmit={handleSubmit} >
-                    <div className="p-field  p-float-label">
+                    <div className="p-field">
                         <label htmlFor="dni" >DNI</label>
                         <InputText id="dni" value={cliente.dni} onChange={(e) => onInputChange(e, 'dni')} required autoFocus className={classNames({ 'p-invalid': submitted && !cliente.dni })} />
                         {submitted && !cliente.dni && <small className="p-error">Debe indicarse un DNI.</small>}
                     </div>
 
-                    <div className="p-field p-float-label">
+                    <div className="p-field">
                         <label htmlFor="name">Nombre</label>
                         <InputText id="name" value={cliente.nombre} onChange={(e) => onInputChange(e, 'nombre')} required autoFocus className={classNames({ 'p-invalid': submitted && !cliente.nombre })} />
                         {submitted && !cliente.nombre && <small className="p-error">Debe indicarse un nombre.</small>}
                     </div>
 
-                    <div className="p-field p-float-label">
+                    <div className="p-field">
                         <label  htmlFor="domicilio">Domicilio</label>
                         <InputText id="domicilio" value={cliente.direccion.domicilio} onChange={(e) => onInputChange(e, 'direccion.domicilio')} autoFocus />
                     </div>
 
-                    <div className="p-field p-float-label">
+                    <div className="p-field">
                         <label htmlFor="localidad">Localidad</label>
                         <InputText id="localidad" value={cliente.direccion.localidad} onChange={(e) => onInputChange(e, 'direccion.localidad')}  />
                     </div>
 
-                    <div className="p-field p-float-label">
+                    <div className="p-field">
                         <label htmlFor="codigoPostal">Código postal</label>
                         <InputText id="codigoPostal" value={cliente.direccion.codigoPostal} onChange={(e) => onInputChange(e, 'direccion.codigoPostal')}  />
                     </div>
 
-                    <div className="p-field p-float-label">
+                    <div className="p-field">
                         <label htmlFor="provincia">Provincia</label>
                         <InputText id="provincia" value={cliente.direccion.provincia} onChange={(e) => onInputChange(e, 'direccion.provincia')}  />
                     </div>
 
-                    <div className="p-field p-float-label">
+                    <div className="p-field">
                         <label htmlFor="telefono">Teléfono</label>
                         <InputText id="telefono" value={cliente.direccion.telefono} onChange={(e) => onInputChange(e, 'direccion.telefono')}  />
                     </div>
