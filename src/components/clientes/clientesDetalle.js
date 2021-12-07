@@ -76,8 +76,8 @@ export default function ClientesDetalle() {
                         </div>
 
                         <div className="p-field">
-                            <label htmlFor="name">Nombre</label>
-                            <InputText id="name" value={cliente.nombre} onChange={(e) => onInputChange(e, 'nombre')} required className={classNames({ 'p-invalid': submitted && !cliente.nombre })} />
+                            <label htmlFor="nombre">Nombre</label>
+                            <InputText id="nombre" value={cliente.nombre} onChange={(e) => onInputChange(e, 'nombre')} required className={classNames({ 'p-invalid': submitted && !cliente.nombre })} />
                             {submitted && !cliente.nombre && <small className="p-error">Debe indicarse un nombre.</small>}
                         </div>
 

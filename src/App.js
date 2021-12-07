@@ -9,6 +9,13 @@ import Home from './components/home'
 import ClientesListado from "./components/clientes/clientesListado";
 import ClientesDetalle from "./components/clientes/clientesDetalle";
 
+import FamiliasListado from "./components/familias/familiasListado";
+import FamiliasDetalle from "./components/familias/familiasDetalle";
+
+import ArticulosListado from "./components/articulos/articulosListado";
+import ArticulosDetalle from "./components/articulos/articulosDetalle";
+
+
 import 'primereact/resources/themes/saga-blue/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
@@ -40,13 +47,15 @@ function App() {
             </Route>
 
             <Route path="articulos" >
-              <Route index element={<Home mensaje="Vista de Articulos <pendiente>" />} />
-              <Route path=":id" element={<Home mensaje="Detalle de un articulo <pendiente>" />} />
+              <Route index element={<ArticulosListado />} />
+              <Route path="nuevo" element={<ArticulosDetalle />} />
+              <Route path=":idArticulo" element={<ArticulosDetalle />} />
             </Route>
 
             <Route path="familias" >
-              <Route index element={<Home mensaje="Vista de Familias <pendiente>" />} />
-              <Route path=":id" element={<Home mensaje="Detalle de un articulo <pendiente>" />} />
+              <Route index element={<FamiliasListado />} />
+              <Route path="nuevo" element={<FamiliasDetalle />} />
+              <Route path=":idFamilia" element={<FamiliasDetalle />} />
             </Route>
 
             <Route path="almacenes" >
