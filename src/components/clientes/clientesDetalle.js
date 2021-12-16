@@ -15,7 +15,7 @@ export default function ClientesDetalle() {
     const navigate = useNavigate();
     const esNuevo = !('dniCliente' in params);
 
-    const clienteVacio = { nombre: "", direccion: { domicilio: "", localidad: "", codigoPostal: "", provincia: "", telefono: "" } }
+    const clienteVacio = { dni: "", nombre: "", direccion: { domicilio: "", localidad: "", codigoPostal: "", provincia: "", telefono: "" } };
     const [cliente, setCliente] = useState(clienteVacio);
     const [submitted, setSubmitted] = useState(false);
 

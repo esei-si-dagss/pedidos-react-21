@@ -5,7 +5,7 @@ import {
   NavLink
 } from "react-router-dom";
 
-import Home from './components/home'
+import Home from './components/home';
 import ClientesListado from "./components/clientes/clientesListado";
 import ClientesDetalle from "./components/clientes/clientesDetalle";
 
@@ -14,6 +14,10 @@ import FamiliasDetalle from "./components/familias/familiasDetalle";
 
 import ArticulosListado from "./components/articulos/articulosListado";
 import ArticulosDetalle from "./components/articulos/articulosDetalle";
+
+import AlmacenesListado from "./components/almacenes/almacenesListado";
+import AlmacenesDetalle from "./components/almacenes/almacenesDetalle";
+import AlmacenesInfo from "./components/almacenes/almacenesInfo";
 
 
 import 'primereact/resources/themes/saga-blue/theme.css';
@@ -59,8 +63,9 @@ function App() {
             </Route>
 
             <Route path="almacenes" >
-              <Route index element={<Home mensaje="Vista de Almacenes <pendiente>" />} />
-              <Route path=":id" element={<Home mensaje="Detalle de un almacen <pendiente>" />} />
+              <Route index element={<AlmacenesListado />} />
+              <Route path="nuevo" element={<AlmacenesInfo />} />
+              <Route path=":idAlmacen" element={<AlmacenesDetalle />} />
             </Route>
 
             <Route path="pedidos" >

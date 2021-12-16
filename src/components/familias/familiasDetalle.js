@@ -15,7 +15,7 @@ export default function FamiliasDetalle() {
     const navigate = useNavigate();
     const esNuevo = !('idFamilia' in params);
 
-    const familiaVacia = { nombre: "", descripcion: "" }
+    const familiaVacia = { nombre: "", descripcion: "" };
     const [familia, setFamilia] = useState(familiaVacia);
     const [submitted, setSubmitted] = useState(false);
 

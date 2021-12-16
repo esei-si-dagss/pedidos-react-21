@@ -80,8 +80,8 @@ export default function ClientesListado(props) {
     function accionesFamilia(rowData) {
         return (
             <React.Fragment>
-                <Button icon="pi pi-pencil" className="p-button-rounded p-button-success mr-2" onClick={() => editarFamilia(rowData)} />
-                <Button icon="pi pi-trash" className="p-button-rounded p-button-danger" onClick={() => confirmarBorradoFamilia(rowData)} />
+                <Button icon="pi pi-pencil" className="p-button-rounded p-button-success mr-2" onClick={() => editarFamilia(rowData)} tooltip="Ver/editar la familia" />
+                <Button icon="pi pi-trash" className="p-button-rounded p-button-danger" onClick={() => confirmarBorradoFamilia(rowData)} tooltip="Eliminar la familia" />
             </React.Fragment>
         );
     }
@@ -89,8 +89,8 @@ export default function ClientesListado(props) {
 
     const pieDialogoBorrado = (
         <React.Fragment>
-            <Button label="No" icon="pi pi-times" className="p-button-text" onClick={ocultarDialogoBorrado} tooltip="Eliminar la familia" />
-            <Button label="si" icon="pi pi-check" className="p-button-text" onClick={borrarFamilia} tooltip="Ver/editar la familia"/>
+            <Button label="No" icon="pi pi-times" className="p-button-text" onClick={ocultarDialogoBorrado}  />
+            <Button label="Si" icon="pi pi-check" className="p-button-text" onClick={borrarFamilia} />
         </React.Fragment>
     );
     return (
@@ -110,7 +110,7 @@ export default function ClientesListado(props) {
             {cargando && <div> <ProgressSpinner /> Cargando... </div>}
 
             <div className="surface-card p-4 border-round shadow-2">
-                <DataTable value={familias} responsiveLayout="scroll" stripedRows>
+                <DataTable value={familias} responsiveLayout="scroll" stripedRows emptyMessage="No hay familias que mostrar">
                     <Column field="id" header="ID" />
                     <Column field="nombre" header="Nombre" sortable />
                     <Column field="descripcion" header="Descripcion"/>

@@ -23,7 +23,7 @@ export default function ArticulosListado(props) {
     const [familiaBusqueda, setFamiliaBusqueda] = useState(null);
     const [articulos, setArticulos] = useState(null);
     const [cargando, setCargando] = useState(true);
-    const [articulosActual, setArticuloActual] = useState(null);
+    const [articuloActual, setArticuloActual] = useState(null);
     const [dialogoBorrado, setDialogoBorrado] = useState(false);
 
     let navigate = useNavigate();
@@ -50,13 +50,13 @@ export default function ArticulosListado(props) {
         navigate(articulo.id.toString()); // navega a URL del articulo
     }
 
-    function confirmarBorradoArtifulo(articulo) {
+    function confirmarBorradoArticulo(articulo) {
         setArticuloActual(articulo);
         setDialogoBorrado(true);
     }
 
     function borrarArticulo() {
-        articulosService.eliminar(articulosActual.id);
+        articulosService.eliminar(articuloActual.id);
         ocultarDialogoBorrado();
     }
 
@@ -102,8 +102,8 @@ export default function ArticulosListado(props) {
     function accionesArticulo(rowData) {
         return (
             <React.Fragment>
-                <Button icon="pi pi-pencil" className="p-button-rounded p-button-success mr-2" onClick={() => editarArticulo(rowData)} />
-                <Button icon="pi pi-trash" className="p-button-rounded p-button-danger" onClick={() => confirmarBorradoArtifulo(rowData)} />
+                <Button icon="pi pi-pencil" className="p-button-rounded p-button-success mr-2" onClick={() => editarArticulo(rowData)} tooltip="Ver/editar el artículo" />
+                <Button icon="pi pi-trash" className="p-button-rounded p-button-danger" onClick={() => confirmarBorradoArticulo(rowData)} tooltip="Eliminar el artículo" />
             </React.Fragment>
         );
     }
@@ -116,8 +116,8 @@ export default function ArticulosListado(props) {
 
     const pieDialogoBorrado = (
         <React.Fragment>
-            <Button label="No" icon="pi pi-times" className="p-button-text" onClick={ocultarDialogoBorrado} tooltip="Eliminar el artículo" />
-            <Button label="si" icon="pi pi-check" className="p-button-text" onClick={borrarArticulo} tooltip="Ver/editar el artículo" />
+            <Button label="No" icon="pi pi-times" className="p-button-text" onClick={ocultarDialogoBorrado} />
+            <Button label="Si" icon="pi pi-check" className="p-button-text" onClick={borrarArticulo}  />
         </React.Fragment>
     );
     return (
@@ -146,7 +146,7 @@ export default function ArticulosListado(props) {
             {cargando && <div> <ProgressSpinner /> Cargando... </div>}
 
             <div className="surface-card p-4 border-round shadow-2">
-                <DataTable value={articulos} responsiveLayout="scroll" stripedRows>
+                <DataTable value={articulos} responsiveLayout="scroll" stripedRows emptyMessage="No hay artículos que mostrar">
                     <Column field="id" header="ID" />
                     <Column field="nombre" header="Nombre" sortable />
                     <Column field="descripcion" header="Descripción" />
@@ -160,7 +160,7 @@ export default function ArticulosListado(props) {
                 footer={pieDialogoBorrado} onHide={ocultarDialogoBorrado}>
                 <div className="flex align-items-center justify-content-center">
                     <i className="pi pi-exclamation-triangle mr-3" style={{ fontSize: '2rem' }} />
-                    {articulosActual && <span>Confirmar el borrado de <b>{articulosActual.nombre}</b>?</span>}
+                    {articuloActual && <span>Confirmar el borrado de <b>{articuloActual.nombre}</b>?</span>}
                 </div>
             </Dialog>
 

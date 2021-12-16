@@ -18,7 +18,7 @@ export default function ArticulosDetalle() {
     const navigate = useNavigate();
     const esNuevo = !('idArticulo' in params);
 
-    const articuloVacio = { id: null, nombre: "", descripcion: "", familia: { id: null, nombre: "", descripcion: "" }, precioUnitario: 0.0 }
+    const articuloVacio = { id: null, nombre: "", descripcion: "", familia: { id: null, nombre: "", descripcion: "" }, precioUnitario: 0.0 };
     const [articulo, setArticulo] = useState(articuloVacio);
     const [submitted, setSubmitted] = useState(false);
     const [familias, setFamilias] = useState([]);

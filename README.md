@@ -54,3 +54,7 @@ Arranca servidor de desarrollo en (http:localhost:3000)
 
 ## Añadidos
 
+#### Semana 6 (16/12/2021)
+* Gestión de `familias`
+* Gestión de `artículos` (ejemplo de manejo de relación 1:N con `familia`)
+* Gestión de `almacenes` (ejemplo de manejo de relaciones N:M con atributos y reutilización de componentes)

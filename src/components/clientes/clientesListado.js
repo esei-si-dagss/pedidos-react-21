@@ -86,8 +86,8 @@ export default function ClientesListado(props) {
     function accionesCliente(rowData) {
         return (
             <React.Fragment>
-                <Button icon="pi pi-pencil" className="p-button-rounded p-button-success mr-2" onClick={() => editarCliente(rowData)} />
-                <Button icon="pi pi-trash" className="p-button-rounded p-button-danger" onClick={() => confirmarBorradoCliente(rowData)} />
+                <Button icon="pi pi-pencil" className="p-button-rounded p-button-success mr-2" onClick={() => editarCliente(rowData)} tooltip="Ver/editar el cliente" />
+                <Button icon="pi pi-trash" className="p-button-rounded p-button-danger" onClick={() => confirmarBorradoCliente(rowData)} tooltip="Eliminar el cliente" />
             </React.Fragment>
         );
     }
@@ -95,8 +95,8 @@ export default function ClientesListado(props) {
 
     const pieDialogoBorrado = (
         <React.Fragment>
-            <Button label="No" icon="pi pi-times" className="p-button-text" onClick={ocultarDialogoBorrado} tooltip="Eliminar el cliente" />
-            <Button label="si" icon="pi pi-check" className="p-button-text" onClick={borrarCliente} tooltip="Ver/editar el cliente" />
+            <Button label="No" icon="pi pi-times" className="p-button-text" onClick={ocultarDialogoBorrado}  />
+            <Button label="Si" icon="pi pi-check" className="p-button-text" onClick={borrarCliente}  />
         </React.Fragment>
     );
 
@@ -120,7 +120,7 @@ export default function ClientesListado(props) {
             {cargando && <div> <ProgressSpinner /> Cargando... </div>}
 
             <div className="surface-card p-4 border-round shadow-2">
-                <DataTable value={clientes} responsiveLayout="scroll" stripedRows>
+                <DataTable value={clientes} responsiveLayout="scroll" stripedRows emptyMessage="No hay clientes que mostrar">
                     <Column field="dni" header="DNI" />
                     <Column field="nombre" header="Nombre" sortable />
                     <Column field="direccion.localidad" header="Localidad" sortable />
